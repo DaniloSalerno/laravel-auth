@@ -64,7 +64,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -72,7 +72,20 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $val_data = $request->validated();
+
+        if ($request->has('thumb') && $project->thumb) {
+
+            Storage::delete($project->thumb);
+
+            $newImageFile = $request->thumb;
+            $file_path = Storage::put('projects_images', $newImageFile);
+            $val_data['thumb'] = $file_path;
+        }
+
+        $project->update($val_data);
+
+        return to_route('admin.projects.index')->with('message', 'Welldone! project updated successfully');
     }
 
     /**
