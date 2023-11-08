@@ -42,11 +42,9 @@
                         <td> {{$project->title}} </td>
 
                         <td>
-                            @if (str_contains($project->thumb, 'http'))
-                                <img width="100" class=" img-fluid" src="{{ $project->thumb }}">
-                            @else
-                                <img width="100" class=" img-fluid" src="{{asset('storage/' . $project->thumb)}}" alt="">
-                            @endif
+    
+                            <img width="100" class="img-fluid" src="{{$project->thumb}}" alt="">
+
                         </td>
 
                         <td> {{$project->description}} </td>
