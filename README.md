@@ -81,3 +81,13 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 ```php
 public const HOME = '/admin';
 ```
+
+- Per andare in dashboard
+```php
+{{ route('admin.dashboard') }}
+```
+
+- Creazione Modello
+```bash
+php artisan make:model Project -a
+```
