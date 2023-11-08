@@ -91,3 +91,71 @@ public const HOME = '/admin';
 ```bash
 php artisan make:model Project -a
 ```
+
+- Sposto ProjectController in cartella Admin e aggiungo
+```php
+namespace App\Http\Controllers\Admin;
+
+
+use App\Http\Controllers\Controller;
+```
+
+# Migrazione e Seeder
+
+- Aggiungo colonne alla tabella
+```php
+public function up(): void
+    {
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 100)->unique();
+            $table->text('description', 300);
+            $table->string('slug');
+            $table->string('thumb')->nullable();
+            $table->text('content')->nullable();
+            $table->timestamps();
+        });
+    }
+```
+
+- Effettuo Migrazione 
+```bash
+php artisan migrate
+```
+
+- Definisco il seeder
+```php
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
+
+class ProjectSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(Faker $faker): void
+    {
+        for ($i = 0; $i < 10; $i++) {
+            $project = new Project();
+            $project->title = $faker->realText(50);
+            $project->description = $faker->realText(100);
+            $project->slug = Str::slug($project->title, '-');
+            $project->thumb = 'placeholders/' . $faker->image('public/storage/placeholders', fullPath: false);
+            $project->content = $faker->realText(150);
+            $project->save();
+        }
+    }
+}
+```
+
+- Modifica in DatabaseSeeder,importare ProjectSeeder
+```php
+$this->call([
+            ProjectSeeder::class
+        ]);
+```
+
+- Effettuo Seeding 
+```bash
+php artisan db:seed
+```
