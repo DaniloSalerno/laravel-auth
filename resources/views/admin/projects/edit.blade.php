@@ -68,7 +68,7 @@
             </div>            
             
             <button type="submit" class="btn btn-primary">Add</button>
-            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">Torna alla lista</a>
+            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">Back to project table</a>
     
         </form>
     </div>

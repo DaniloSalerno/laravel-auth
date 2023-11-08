@@ -9,7 +9,11 @@
         </div>
     @endif
 
-    <h1 class="text-white py-4">Trash</h1>
+    <h1 class="py-4">Trashed project</h1>
+
+    <div class="py-2">
+        <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">Back to project table</a>
+    </div>
 
     <table class="table table-primary table-hover table-striped table-bordered">
     
