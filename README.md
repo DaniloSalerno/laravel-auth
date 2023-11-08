@@ -159,3 +159,5 @@ $this->call([
 ```bash
 php artisan db:seed
 ```
+
+# Operazioni crud
