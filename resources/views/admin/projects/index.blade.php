@@ -51,7 +51,7 @@
 
                         <td> {{$project->description}} </td>
                         <td class="d-flex gap-2 py-4">
-                             <a href=" {{-- {{route('projects.show', $project->id)}} --}} " class="btn btn-outline-primary">View</a> 
+                             <a href=" {{route('admin.projects.show', $project->slug)}} " class="btn btn-outline-primary">View</a> 
                              <a href=" {{-- {{route('projects.edit', $project->id)}} --}} " class="btn btn-outline-success">Edit</a> 
                         </td>
                     </tr>
@@ -63,7 +63,7 @@
             </table>
             <div class="pt-4"> {{$projects->links('pagination::bootstrap-5')}} </div>
         </div>
-    </div>
+</div>
     
 
 @endsection
