@@ -5,18 +5,18 @@
 <div class="container py-4">
 
 
-        {{-- @if(session('message'))
+        @if(session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
               <strong>Success!</strong> {{session('message')}}
             </div>
             
-        @endif --}}
+        @endif
 
         <h1>Projects table</h1>
 
         <div class="d-flex justify-content-between my-4">
-            <a class="btn btn-primary" href="{{-- {{ route('projects.create') }} --}}">Add New project</a>
+            <a class="btn btn-primary" href="{{ route('admin.projects.create') }}">Add New project</a>
             <a class="btn btn-danger" href="{{-- {{ route('projects.trash') }} --}}">Trash</a>
 
         </div>
