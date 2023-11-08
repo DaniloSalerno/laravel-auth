@@ -50,7 +50,7 @@
                         </td>
 
                         <td> {{$project->description}} </td>
-                        <td class="d-flex gap-2 py-4">
+                        <td class="d-flex gap-2">
                              <a href=" {{route('admin.projects.show', $project->slug)}} " class="btn btn-outline-primary">View</a> 
                              <a href=" {{-- {{route('projects.edit', $project->id)}} --}} " class="btn btn-outline-success">Edit</a> 
                         </td>
