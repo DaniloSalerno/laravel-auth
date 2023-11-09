@@ -15,9 +15,8 @@
             </div>
         @endif
 
-        <div class="py-4">
-            <h2>Edit of:</h2>
-            <strong>{{$project->title}}</strong>
+        <div class="pb-4">
+            <h2 class="text-muted text-uppercase">Edit</h2>
         </div>
 
 
@@ -67,8 +66,12 @@
                 @enderror
             </div>            
             
-            <button type="submit" class="btn btn-primary">Add</button>
-            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">Back to project table</a>
+            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">
+                <i class="fa-solid fa-left-long"></i>
+            </a>
+            <button type="submit" class="btn btn-success">
+                <i class="fa-regular fa-square-check fa-lg"></i>
+            </button>
     
         </form>
     </div>

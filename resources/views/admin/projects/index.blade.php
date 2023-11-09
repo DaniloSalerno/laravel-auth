@@ -13,7 +13,7 @@
             
         @endif
 
-        <h1 class="text-muted text-uppercase">Projects table</h1>
+        <h2 class="text-muted text-uppercase">Projects table</h1>
 
         <div id="icons">
             <a class="btn btn-primary d-inline-flex align-items-center justify-items-center p-2" href="{{ route('admin.projects.create') }}">
@@ -59,12 +59,16 @@
                         <td>
 
                             <div class="d-flex gap-2">
-                                <a href=" {{route('admin.projects.show', $project->slug)}} " class="btn btn-outline-primary">View</a> 
-                                <a href=" {{route('admin.projects.edit', $project->slug)}} " class="btn btn-outline-success">Edit</a> 
+                                <a href=" {{route('admin.projects.show', $project->slug)}} " class="btn btn-outline-primary">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a> 
+                                <a href=" {{route('admin.projects.edit', $project->slug)}} " class="btn btn-outline-success">
+                                    <i class="fa-solid fa-file-pen"></i>
+                                </a> 
     
                                 <!-- Modal trigger button -->
                                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalId-{{$project->id}}">
-                                    Delete
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </div>
                              
@@ -76,17 +80,18 @@
                                     <div class="modal-content">
 
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modalTitleId-{{$project->id}}">Warning!</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title d-flex justify-content-center align-items-center gap-3 w-100" id="modalTitleId-{{$project->id}}">
+                                                <i class="fa-solid fa-triangle-exclamation text-warning"></i> Warning <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+                                            </h5>
                                         </div>
                                         {{-- /.modal-header --}}
 
-                                        <div class="modal-body">
+                                        <div class="modal-body text-center">
                                             Are you sure to delete?
                                         </div>
                                         {{-- /.modal-body --}}
 
-                                        <div class="modal-footer">
+                                        <div class="modal-footer d-flex justify-content-center align-items-center gap-3">
 
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 

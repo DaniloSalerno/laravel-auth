@@ -54,8 +54,12 @@
                 @enderror
             </div>            
             
-            <button type="submit" class="btn btn-primary">Add</button>
-            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">Back to project table</a>
+            <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">
+                <i class="fa-solid fa-left-long"></i>
+            </a>
+            <button type="submit" class="btn btn-success">
+                <i class="fa-solid fa-plus"></i>
+            </button>
     
         </form>
     </div>
