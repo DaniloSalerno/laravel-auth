@@ -2,29 +2,72 @@
 
 @section('content')
 <div class="container">
-    <div class="d-flex justify-content-between py-4 align-items-center">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
+    
+    <h2 class="fs-4 text-secondary my-4">
+        {{__('Welcome')}}  {{ Auth::user()->name }}
+    </h2>
 
-        <a class="btn btn-primary" href="{{ route('admin.projects.index') }}"> Table Project </a>
-    </div>
-    <div class="row justify-content-center">
+    <div class="row row-cols-sm-2 row-cols-md-3 justify-content-center">
         <div class="col">
-            <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
+            <div class="card text-center">
+                <a class="text-dark text-decoration-none" href="{{ route('admin.projects.index') }}">
+                    <div class="card-header text-uppercase d-flex justify-content-center align-items-center gap-2">
+                        <span>projects</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                          </svg>
+                    </div>
+                </a>
+                    <div class="card-body">
+                        
+                        <div>
+                            {{$total_projects}}
+                        </div>  
+                       
+                    </div>
+                    {{-- /.card-body --}}
+                </div>
+            
+            {{-- /.card --}}
+        </div>
+        {{-- /.col --}}
+
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header text-uppercase">users</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                    
+                    <div>
+                        {{$total_users}}
                     </div>
-                    @endif
 
-                    Welcome {{Auth::user()->name}}
+                   
                 </div>
+                {{-- /.card-body --}}
             </div>
+            {{-- /.card --}}
         </div>
+        {{-- /.col --}}
+
+        <div class="col">
+            <div class="card text-center">
+                <div class="card-header text-uppercase">other</div>
+
+                <div class="card-body">
+                    
+                    <div>
+                        {{$total_projects}}
+                    </div>
+
+                   
+                </div>
+                {{-- /.card-body --}}
+            </div>
+            {{-- /.card --}}
+        </div>
+        {{-- /.col --}}
     </div>
 </div>
 @endsection
