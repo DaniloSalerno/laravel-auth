@@ -25,9 +25,9 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title' => ['bail', 'required', 'min:5', 'max:100', Rule::unique('projects')->ignore($this->project)],
-            'description' => 'bail|required|min:10|max:300',
-            'content' => 'bail|required|min:10|max:1000',
-            'thumb' => 'required|image|max:1000'
+            'description' => ['bail', 'required', 'min:10', 'max:300'],
+            'content' => ['bail', 'required', 'min:10', 'max:1000'],
+            'thumb' => ['required', 'image', 'max:1000']
         ];
     }
 }
