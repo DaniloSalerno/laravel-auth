@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
+
 class StoreProjectRequest extends FormRequest
 {
     /**
@@ -23,7 +24,7 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|min:5|max:100',
+            'title' => 'bail|required|min:5|max:100|unique:projects',
             'description' => 'bail|required|min:10|max:300',
             'content' => 'bail|required|min:10|max:1000',
             'thumb' => 'required|image|max:1000'

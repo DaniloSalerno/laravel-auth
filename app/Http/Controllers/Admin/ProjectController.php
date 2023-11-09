@@ -83,6 +83,10 @@ class ProjectController extends Controller
             $val_data['thumb'] = $file_path;
         }
 
+        if (!Str::is($project->getOriginal('title'), $request->transliterator_list_ids)) {
+            $val_data['slug'] = $project->generateSlug($request->title);
+        }
+
         $project->update($val_data);
 
         return to_route('admin.projects.index')->with('message', 'Welldone! project updated successfully');

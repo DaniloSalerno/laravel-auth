@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|min:5|max:100',
+            'title' => ['bail', 'required', 'min:5', 'max:100', Rule::unique('projects')->ignore($this->project)],
             'description' => 'bail|required|min:10|max:300',
             'content' => 'bail|required|min:10|max:1000',
             'thumb' => 'required|image|max:1000'
