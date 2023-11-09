@@ -38,7 +38,8 @@
                         <th scope="col">Title</th>
                         <th scope="col">Image</th>
                         <th scope="col">Description</th>
-                        <th>Options</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Options</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -55,6 +56,11 @@
                         </td>
 
                         <td> {{$project->description}} </td>
+
+                        <td class="text-center">
+                             <div>{{$project->created_at->format('d-m-Y')}}</div>
+                             <div>{{$project->created_at->format('H:i')}}</div>
+                        </td>
                         
                         <td>
 

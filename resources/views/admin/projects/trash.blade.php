@@ -26,7 +26,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Image</th>
                 <th scope="col">Description</th>
-                <th scope="col">Deleted at</th>
+                <th scope="col">Deleted</th>
                 <th scope="col">Options</th>
             </tr>
         </thead>
@@ -45,8 +45,10 @@
     
                 <td> {{$project->description}} </td>
 
-                <td> {{$project->deleted_at}} </td>
-
+                <td class="text-center">
+                    <div>{{$project->deleted_at->format('d-m-Y')}}</div>
+                    <div>{{$project->deleted_at->format('H:i')}}</div>
+               </td>
     
                 <td>
   
