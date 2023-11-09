@@ -97,7 +97,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        if (!is_null($project->exif_thumbnail)) {
+
+        //dd($project->exif_thumbnail);
+        //dd($project->thumb);
+        if (!is_null($project->thumb)) {
             Storage::delete($project->thumb);
         }
         $project->delete();
@@ -122,6 +125,11 @@ class ProjectController extends Controller
     public function forceDelete($id)
     {
         $project = Project::withTrashed()->find($id);
+
+        //dd($project->thumb);
+        if (!is_null($project->thumb)) {
+            Storage::delete($project->thumb);
+        }
 
         $project->forceDelete();
 
