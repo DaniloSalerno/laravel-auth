@@ -109,4 +109,22 @@ class ProjectController extends Controller
     {
         return view('admin.projects.trash', ['trash_project' => Project::onlyTrashed()->get()]);
     }
+
+
+    public function restore($id)
+    {
+        $project = Project::withTrashed()->find($id);
+        $project->restore();
+
+        return to_route('admin.projects.index')->with('message', 'Welldone! Project restored successfully');
+    }
+
+    public function forceDelete($id)
+    {
+        $project = Project::withTrashed()->find($id);
+
+        $project->forceDelete();
+
+        return to_route('admin.trash')->with('message', 'Well Done! Project deleted successfully!');
+    }
 }

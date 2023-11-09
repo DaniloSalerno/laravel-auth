@@ -82,7 +82,7 @@
                                         {{-- /.modal-header --}}
 
                                         <div class="modal-body">
-                                            Are you sure? Irreversible action
+                                            Are you sure to delete?
                                         </div>
                                         {{-- /.modal-body --}}
 

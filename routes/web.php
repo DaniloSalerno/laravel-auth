@@ -27,7 +27,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         'projects' => 'project:slug'
     ]);
 
-    Route::get('/admin/comics/trash', [ProjectController::class, 'trash_projects'])->name('trash');
+    Route::get('/admin/project/trash', [ProjectController::class, 'trash_projects'])->name('trash');
+    Route::put('/admin/trash/{project}/restore', [ProjectController::class, 'restore'])->name('restore');
+    Route::delete('/admin/trash/{project}/destroy', [ProjectController::class, 'forceDelete'])->name('forceDelete');
 });
 
 
