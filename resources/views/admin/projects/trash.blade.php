@@ -18,6 +18,8 @@
         </a>
     </div>
 
+    <div class="pt-4"> {{$trash_project->links('pagination::bootstrap-5')}} </div>
+
     <table class="table table-primary table-hover table-striped table-bordered">
     
         <thead>
@@ -158,6 +160,9 @@
             @endforelse
         </tbody>
     </table>
+
+    <div class="pt-4"> {{$trash_project->links('pagination::bootstrap-5')}} </div>
+
 </div>
 
 

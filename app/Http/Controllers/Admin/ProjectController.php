@@ -107,7 +107,7 @@ class ProjectController extends Controller
 
     public function trash_projects()
     {
-        return view('admin.projects.trash', ['trash_project' => Project::onlyTrashed()->get()]);
+        return view('admin.projects.trash', ['trash_project' => Project::onlyTrashed()->orderByDesc('deleted_at')->paginate(10)]);
     }
 
 
