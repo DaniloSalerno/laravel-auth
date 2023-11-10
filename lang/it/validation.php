@@ -65,7 +65,9 @@ return [
         'title' => 'Titolo',
         'thumb' => 'Immagine',
         'description' => 'Descrizione',
-        'content' => 'Contenuto'
+        'content' => 'Contenuto',
+        'project_url' =>  'Url del progetto',
+        'git_url' =>  'Git Url del progetto'
     ],
 
 ];

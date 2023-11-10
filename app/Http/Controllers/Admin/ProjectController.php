@@ -74,11 +74,16 @@ class ProjectController extends Controller
     {
         $val_data = $request->validated();
 
+        $thumb = $project->thumb;
+        //dd($thumb);
+        $relative_path = Str::after($thumb, 'storage/');
+
         if ($request->has('thumb') && $project->thumb) {
 
-            Storage::disk('public')->delete('projects_images', $project->thumb);
+            Storage::delete($relative_path);
 
             $newImageFile = $request->thumb;
+
             $file_path = Storage::put('projects_images', $newImageFile);
             $val_data['thumb'] = $file_path;
         }
@@ -100,9 +105,9 @@ class ProjectController extends Controller
 
         //dd($project->exif_thumbnail);
         //dd($project->thumb);
-        if (!is_null($project->thumb)) {
-            Storage::disk('public')->delete('projects_images', $project->thumb);
-        }
+        /*  if (!is_null($project->thumb)) {
+            Storage::delete($project->thumb);
+        } */
         $project->delete();
 
         return to_route('admin.projects.index')->with('message', 'Welldone! Project deleted successfully');
@@ -125,10 +130,16 @@ class ProjectController extends Controller
     public function forceDelete($id)
     {
         $project = Project::withTrashed()->find($id);
+        $thumb = $project->thumb;
 
-        //dd($project->thumb);
+        $relative_path = Str::after($thumb, 'storage/');
+
+
+
         if (!is_null($project->thumb)) {
-            Storage::disk('public')->delete('projects_images', $project->thumb);
+            //dd($project->thumb);
+            //dd(Storage::exists($relative_path));
+            Storage::delete($relative_path);
         }
 
         $project->forceDelete();
