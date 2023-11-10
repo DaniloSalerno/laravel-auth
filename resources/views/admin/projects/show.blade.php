@@ -5,6 +5,7 @@
 <div class="container">
 
     <div class="py-4 d-flex gap-3">
+
         <h2 class="text-muted text-uppercase">View of ID: {{$project->id}}</h2>
         
         <a href="{{ route('admin.projects.index') }}" class="text-decoration-none btn btn-primary d-flex justify-content-center align-items-center" >
@@ -14,6 +15,14 @@
         <a href=" {{route('admin.projects.edit', $project->slug)}} " class="btn btn-success d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-file-pen"></i>
         </a>
+
+        <!-- Modal trigger button -->
+        <button type="button" class="btn btn-danger d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#modalId-{{$project->id}}">
+            <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <!-- Modal is here 👇 -->
+        @include('admin.projects.partials.modal_delete')
+        
     </div>
 
     <div class="row row-cols-1 row-cols-md-2">

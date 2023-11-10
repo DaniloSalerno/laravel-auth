@@ -161,11 +161,15 @@
                 </td>
     
             </tr>
+
             @empty
+
                 <tr>
                     <td>No project trashed</td>
                 </tr>
+                
             @endforelse
+
         </tbody>
     </table>
 
