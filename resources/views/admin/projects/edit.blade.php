@@ -16,7 +16,7 @@
         @endif
 
         <div class="py-4">
-            <h2 class="text-muted text-uppercase">Edit this project</h2>
+            <h2 class="text-muted text-uppercase">Edit project ID: {{$project->id}}</h2>
         </div>
 
 
@@ -111,7 +111,7 @@
 
             <div class="py-4">
                 <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">
-                    <i class="fa-solid fa-left-long"></i>
+                    <i class="fa-solid fa-table-list"></i>
                 </a>
                 <button type="submit" class="btn btn-success">
                     <i class="fa-regular fa-square-check fa-lg"></i>

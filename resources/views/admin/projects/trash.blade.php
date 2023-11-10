@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
 
-    <h1 class="py-4">Trashed project</h1>
+    <div class="py-4">
+        <h2 class="text-muted text-uppercase">Trashed project</h2>
+    </div>
 
     @if (session('message'))
         <div class="alert alert-success" role="alert">
@@ -14,7 +16,7 @@
 
     <div class="py-2">
         <a class="text-decoration-none btn btn-primary" href="{{ route('admin.projects.index') }}">
-            <i class="fa-solid fa-left-long"></i>
+            <i class="fa-solid fa-table-list"></i>
         </a>
     </div>
 

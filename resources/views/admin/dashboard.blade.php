@@ -9,7 +9,7 @@
 
     <div class="row row-cols-sm-2 row-cols-md-3 justify-content-center">
         <div class="col">
-            <div class="card text-center haver_shadow">
+            <div class="card text-center hover_shadow">
                 <a class="text-dark text-decoration-none" href="{{ route('admin.projects.index') }}">
                     <div class="card-header text-uppercase d-flex justify-content-center align-items-center gap-2">
                         <span>projects</span>
