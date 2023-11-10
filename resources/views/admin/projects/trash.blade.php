@@ -22,10 +22,10 @@
 
     <div class="pt-4"> {{$trash_project->links('pagination::bootstrap-5')}} </div>
 
-    <table class="table table-primary table-hover table-striped table-bordered">
+    <table class="table table-light table-hover table-striped table-bordered table align-middle">
     
         <thead>
-            <tr>
+            <tr class="table-dark text-center">
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Image</th>
@@ -50,8 +50,14 @@
                 <td> {{$project->description}} </td>
 
                 <td class="text-center">
-                    <div>{{$project->deleted_at->format('d-m-Y')}}</div>
-                    <div>{{$project->deleted_at->format('H:i')}}</div>
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                       <i class="fa-solid fa-calendar-days"></i>
+                       {{$project->deleted_at->format('d-m-Y')}}
+                   </div>
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                       <i class="fa-regular fa-clock"></i>
+                       {{$project->deleted_at->format('H:i')}}
+                   </div>
                </td>
     
                 <td>
