@@ -14,7 +14,7 @@ class Project extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'thumb', 'description', 'content', 'slug'];
+    protected $fillable = ['title', 'thumb', 'description', 'content', 'slug', 'project_url', 'git_url'];
 
     protected function thumb(): Attribute
     {
@@ -29,7 +29,7 @@ class Project extends Model
         );
     }
 
-    public function generateSlug($title)
+    public static function generateSlug($title)
     {
         return Str::slug($title, '-');
     }

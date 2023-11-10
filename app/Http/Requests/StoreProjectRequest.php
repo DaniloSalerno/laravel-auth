@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Validation\Rule;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -27,7 +27,9 @@ class StoreProjectRequest extends FormRequest
             'title' => ['bail', 'required', 'min:5', 'max:100', 'unique:projects'],
             'description' => ['bail', 'required', 'min:10', 'max:300'],
             'content' => ['bail', 'required', 'min:10', 'max:1000'],
-            'thumb' => ['required', 'image', 'max:1000']
+            'thumb' => ['bail', 'required', 'image', 'max:1000'],
+            'project_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')],
+            'git_url' => ['bail', 'nullable', 'string', 'max:255', Rule::unique('projects')]
         ];
     }
 }

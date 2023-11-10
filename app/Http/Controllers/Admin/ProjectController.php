@@ -37,7 +37,8 @@ class ProjectController extends Controller
     {
         $val_data = $request->validated();
 
-        $val_data['slug'] = Str::slug($request->title, '-');
+        $val_data['slug'] = Project::generateSlug($request->title);
+
         //dd($val_data);
 
         if ($request->has('thumb')) {

@@ -68,7 +68,7 @@
             
             <div class="mb-5">
                 <label for="project_url" class="form-label">Project Url</label>
-                <input type="text" name="project_url" id="project_url" class="form-control @error('project_url') is-invalid @enderror" placeholder="" aria-describedby="helpId" value=" {{old('project_url', $project->project_url)}}" required>
+                <input type="url" name="project_url" id="project_url" class="form-control @error('project_url') is-invalid @enderror" placeholder="" aria-describedby="helpId" value=" {{old('project_url', $project->project_url)}}" required>
                 <small id="project_urlHelper" class="text-muted">Type a Project Url</small>
                 @error('project_url')
                     <div class="text-danger"> {{$message}} </div>
@@ -77,7 +77,7 @@
 
             <div class="mb-5">
                 <label for="git_url" class="form-label">Git Url</label>
-                <input type="text" name="git_url" id="git_url" class="form-control @error('git_url') is-invalid @enderror" placeholder="" aria-describedby="helpId" value=" {{old('git_url', $project->git_url)}}" required>
+                <input type="url" name="git_url" id="git_url" class="form-control @error('git_url') is-invalid @enderror" placeholder="" aria-describedby="helpId" value=" {{old('git_url', $project->git_url)}}" required>
                 <small id="git_urlHelper" class="text-muted">Type a Project git Url</small>
                 @error('git_url')
                     <div class="text-danger"> {{$message}} </div>
