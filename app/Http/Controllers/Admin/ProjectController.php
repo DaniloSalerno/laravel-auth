@@ -41,7 +41,7 @@ class ProjectController extends Controller
         //dd($val_data);
 
         if ($request->has('thumb')) {
-            $file_path = Storage::put('projects_images', $request->thumb);
+            $file_path = Storage::disk('public')->put('projects_images', $request->thumb);
             $val_data['thumb'] = $file_path;
         }
 
@@ -76,7 +76,7 @@ class ProjectController extends Controller
 
         if ($request->has('thumb') && $project->thumb) {
 
-            Storage::delete($project->thumb);
+            Storage::disk('public')->delete('projects_images', $project->thumb);
 
             $newImageFile = $request->thumb;
             $file_path = Storage::put('projects_images', $newImageFile);
@@ -101,7 +101,7 @@ class ProjectController extends Controller
         //dd($project->exif_thumbnail);
         //dd($project->thumb);
         if (!is_null($project->thumb)) {
-            Storage::delete($project->thumb);
+            Storage::disk('public')->delete('projects_images', $project->thumb);
         }
         $project->delete();
 
@@ -128,7 +128,7 @@ class ProjectController extends Controller
 
         //dd($project->thumb);
         if (!is_null($project->thumb)) {
-            Storage::delete($project->thumb);
+            Storage::disk('public')->delete('projects_images', $project->thumb);
         }
 
         $project->forceDelete();

@@ -35,7 +35,9 @@
 
         <div class="col">
             <div class="card text-center haver_shadow">
-                <div class="card-header text-uppercase">users</div>
+                <div class="card-header text-uppercase">
+                    users <i class="fa-solid fa-user-group fa-xs"></i>
+                </div>
 
                 <div class="card-body">
                     
