@@ -25,55 +25,57 @@
     <div id="app">
 
         <header>
+
             <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
 
-                    <div class="d-flex w-100 justify-content-between py-2 align-items-center px-2">
+                <div class="wrapper d-flex w-100 justify-content-between py-2 align-items-center px-2">
 
-                        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon text-white"></span>
-                        </button>
-                    
-                        <a class="navbar-brand col-2 text-white d-block d-md-inline me-sm-3"
-                            href="{{ route('admin.dashboard') }}">
-                            Portfolio
+                    <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-white"></span>
+                    </button>
+                
+                    <a class="navbar-brand col-2 text-white d-block d-md-inline me-sm-3"
+                        href="{{ route('admin.dashboard') }}">
+                        Portfolio
+                    </a>
+
+                    <input class="form-control" type="search" placeholder="Search"
+                        aria-label="Search">
+
+                    <div class="dropdown-center">
+
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-2" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            v-pre>
+                            {{ Auth::user()->name }}
                         </a>
 
-                        <input class="form-control" type="search" placeholder="Search"
-                            aria-label="Search">
+                        <div class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="navbarDropdown">
 
-                        <div class="dropdown-center">
+                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
 
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-2" href="#"
-                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                v-pre>
-                                {{ Auth::user()->name }}
+                            <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="navbarDropdown">
-
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
-
-                                <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-
-                            </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
 
                         </div>
-
-
+                        {{-- /.dropdown-menu --}}
 
                     </div>
+                    {{-- /.dropdown-center --}}
+
+                </div>
+                {{-- /.wrapper --}}
 
             </nav>
             
