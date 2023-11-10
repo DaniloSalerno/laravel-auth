@@ -24,43 +24,59 @@
 <body>
     <div id="app">
 
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Portfolio</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
-            <div class="navbar-nav">
-                <div class="nav-item text-nowrap ms-2">
-                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-              {{--   <!-- <ul>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                             {{ Auth::user()->name }}
+        <header>
+            <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+
+                    <div class="d-flex w-100 justify-content-between py-2 align-items-center px-2">
+
+                        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon text-white"></span>
+                        </button>
+                    
+                        <a class="navbar-brand col-2 text-white d-block d-md-inline me-sm-3"
+                            href="{{ route('admin.dashboard') }}">
+                            Portfolio
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ url('dashboard') }}">{{__('Dashboard')}}</a>
-                            <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                        <input class="form-control" type="search" placeholder="Search"
+                            aria-label="Search">
+
+                        <div class="dropdown-center">
+
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-2" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                v-pre>
+                                {{ Auth::user()->name }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                            <div class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+
+                                <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
+                            </div>
+
                         </div>
-                    </li>
-                </ul> -->--}}
-            </div>
+
+
+
+                    </div>
+
+            </nav>
+            
         </header>
 
         <div class="container-fluid vh-100">
